@@ -550,7 +550,7 @@ angular.module('ngTasty.component.table', [
       if (scope.templateUrl) {
         $http.get(scope.templateUrl, { cache: $templateCache })
         .then(function(templateContent) {
-          element.replaceWith($compile(templateContent)(scope));                
+          element.replaceWith($compile(templateContent.data)(scope));
         }, function(error) {
           console.log(error);
         });
@@ -724,7 +724,7 @@ angular.module('ngTasty.component.table', [
       if (scope.templateUrl) {
         $http.get(scope.templateUrl, { cache: $templateCache })
         .then(function(templateContent) {
-          element.replaceWith($compile(templateContent)(scope));                
+          element.replaceWith($compile(templateContent.data)(scope));
         }, function(error) {
           console.log(error);
         });
