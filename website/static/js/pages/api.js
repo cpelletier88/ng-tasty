@@ -88,7 +88,7 @@ ApiCtrl.prototype.loadTableOfContents = function() {
   var self = this;
   var $scope = self.$scope;
 
-  this.$http.get('/toc.json').success(function(data) {
+  this.$http.get('/toc.json').then(function(data) {
     var list = data.items;
 
     // Remove 'WebdriverBy.prototype' from the list.
@@ -113,6 +113,8 @@ ApiCtrl.prototype.loadTableOfContents = function() {
     }
 
     self.addExtends(list);
+  }, function(error) {
+    console.log(error);
   });
 };
 
